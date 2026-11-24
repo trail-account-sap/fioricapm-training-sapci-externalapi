@@ -1,0 +1,32 @@
+{
+  "name": "sapci",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@sap/cds": "^10",
+    "@sap-cloud-sdk/connectivity": "^4",
+    "@sap-cloud-sdk/http-client": "^4",
+    "@sap-cloud-sdk/resilience": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^3"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "sapci": {
+        "kind": "odata-v2",
+        "model": "srv/external/sapci",
+        "[hybrid]": {
+          "credentials": {
+            "destination": "SAP_Cloud_Integration",
+            "path": "/api/v1"
+          }
+        }
+      }
+    }
+  }
+}
